@@ -1,0 +1,29 @@
+---
+layout: post
+title:  "Hellow!"
+date:   2026-03-19 12:34:19 +0800
+categories: introduction
+---
+not sure how im gonna start with this but i just figured out this jekyll thingy. Of cource as you can see it's quite basic right now in fact it is the default theme actually.
+
+> can't figure out the themes rn :/
+
+Still i guess you can say this is a work in progress rn. I probably make a landing page sometime soon as well as project showcase ig. Also probably my own custom theme sometime soon.
+
+for now it just gonna be a blog site.
+
+> A personal blog in 2026 ????????
+
+Inspired by my friend (i know you're gonna reading this), plus i do like sharing stuff i discovered (pretty sure my brother is annoyed enough).
+
+This is gonna be served as a way for me to write stuff and document (hopefully?) for no one lol
+
+It's a start for sure, i'll definetly have some things to write about
+
+so yeah hellow random strangers that come across this uhm thing.
+
+> i know i misspell hello this is because i write too many hello world and some how it became natural to type hellow :3
+
+since you are here, i'll let you know that my username is in fact a shorten version of a nickname
+
+also, RSS ???? i haven't heard that in such a long time
