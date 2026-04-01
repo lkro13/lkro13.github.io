@@ -146,3 +146,6 @@ actual convo I had
 - [https://github.com/Mellow-3D/build](https://github.com/Mellow-3D/build)
 - [https://reprap.org/wiki/RepRap_Machines](https://reprap.org/wiki/RepRap_Machines)
 - [https://en.wikipedia.org/wiki/Prusa_Research](https://en.wikipedia.org/wiki/Prusa_Research)
+
+
+###### RIP myrient <3
