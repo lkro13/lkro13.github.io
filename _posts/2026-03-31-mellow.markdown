@@ -1,0 +1,148 @@
+---
+layout: post
+title:  "A note on mellow"
+date:   2026-03-31 2:19:00 +0800
+categories: printer
+---
+
+Mellow somehow made me to never buy their stuff ever again, to explain how the fuck this happend we have to go back to the day I got my Voron kit
+
+[tldr below if you don't care](#tldr)
+
+### 1 year ago
+
+About 1 year ago I got my Voron 0.2 kit from siboor, and for some reason the selling point was the motherboard. It was a mellow fly gemini v3 to be exact, it basically a SBC with a 3d printer motherboard build in. The specs are... not that impressive in my opinoin 
+
+- Allwinner H5
+- 1GB DDR3
+- STM32F405
+- 12-24V
+
+Following Voron docs they assume you used a BTT skr pico with a pi 4 which I guess you can say it similar enough. There are few annoyance like there is no wifi onboard, one of the usb port is disabled, ~~flashing the stm required much more complicated steps that is not even documented~~.[They have added the docs now but in their CN website, back then i refer to someone gist on flashing]
+
+Hell, went I first boot up the klipper is extremely out of date and the fun part? you can't actually update it using stock moonraker method. So I went ahead and cloned KIAUH and update it from there, and I got a mesaage when I login now
+
+> self compiled no support provided
+
+uhmm okay? I thought this is expected when someone bought a voron kit anyways. But yeah that fucking breaks everything nothing works anymore. So I went on google found a fly-os image and flash it and reconfigured it as if it was a new klipper install and everything works as expected. 
+
+> Although this likey to be from siboor but im not sure
+
+But since the day I bought it, I already disliked mellow.
+
+### Questionable open source
+
+Did you know the entire 3d printing community is build on open source? Prusa was started as a reprap aka a 3d printer that can be made out of a 3d printer just like voron. The reprap community is already a history, they aren't active anymore (as far as I can tell) but their legacy still lives on like Sli3r being used in prusaslicer. Prusa themselves are open sources, their firmware, printers, etc (newer prusa im not sure actually).
+
+> Voron and prusa is a reprap, in case my wording isn't clear enough. Both are recognized in the reprap wiki.
+
+Creality, another popular printer manufacutre best known for their ender 3 series (also got shit on because people won't stop comparing a 2025 printer to a 2018 printer) there is a point where creality got called out for not following open sources license and not provide the source at all. It got to a point where people are like "Do not buy from this company at all" until they fully open source the ender 3.
+
+> Ender 3 is actually fully open source as in even the cad files are available, not just the firmware (marlin)
+
+Mellow has a github but for my motherboard specific, there is just pinout, a schematic and a precompiled bootloader that's about all. Hell even the pinout isn't even complete, I had to search the schemetic only to found out a pin I want to use is shared with the stepper motor.
+
+Their repo for my board said 
+> We are not Mellow employees, just 3D printer enthusiasts
+
+Yet mellow offical site linked to this github profile. So is it by mellow or the community ? idk
+
+According to my fly-os build, it is armbian ~~but I didn't found a armbian repo anywhere in mellow profile~~.Found it, it was called "build" for some odd reason.
+
+### Forced eco system ?
+
+My kit has a stepper driver dead on arrival on z axis, so I went online and bought a new TMC2209 from BTT (they are the only one that has local stock). After it arrived, replaced the A488 I temporary stuck on it andddd my z axis won't home :/ which is weird.
+
+> For some context my kit has XY sensorless homing while the z has a microswitch at the bottom
+
+Went online, said to remove the stepdir pin jumper from motherboard as that is shared with the sensor pin. Removed the stepper driver only to find there isn't one? uhh went to mellow docs only to found out there is not not a jumper for it. Soooo how do you disable it? Well if you used mellow's TMC2209 there is a switch under it but only mellow does this the BTT stepper I used obviously don't have, mellow solution for non-mellow specific is to cut the pin off.
+
+![image of the stepper here](/images/mellow/stepper.webp)
+
+Mellow on the left, BTT on the right. _notice the little switch up ontop on mellow?_
+
+Since I alredy spend the money on a new stepper and I don't want to limit my future options, I just swap the z with the y driver.
+
+The lack of onboard wifi card is annoying but siboor did include a wifi usb dongle so it isn't that annoying, but let's say if you want to use the m.2 port you would have to find a specific supported card in the short list **or** buy one from them with onboard storage.
+
+So this does means you can't just put a wifi card from your old laptop or something, you will have to get a supported ones. The ones they are selling with onboard storage needs a special writing tool which again, only they sell it.
+
+Although sort of expected since armbian can't possibly support everyone out there so _fine_.
+
+From then on I was like if this board ever died on me someday, imma replace it with a btt + pi.
+
+Oh hey did you know the fan mosfet is on a external board? They said it is for easy replacement if you ever break it. But again only they have, I'll let this slide as no other company does this. Although this did cause some confusion
+
+During my build process I have post my build process it on discord another guy came across my build log and was waiting for his. Few weeks later, I went to his build log and he was trying to figure it out why his fan was not working turns out the mosfet was not plugged it. Sort of siboor fault as they did not mention it in the manual or plugged from the factory. I know this because I research on the board before I even recevied it.
+
+### Present time
+
+Few months go by Im super happy with my voron, throw some mods here and there and slowly I was like
+
+> maybe mellow isn't that bad
+
+So why is this exist? well, just few weeks ago i thought to treat myself and got a fly minipad. There isn't anything wrong with it, it's just a pi with a touch screen it works as it advertise. Main goal is add a battery and use it as a wireless klipperscreen.
+
+It doesn't comes with a sd or onboard storage that is to be expected so I found random sd card I have and went to see their docs only to find I had to install their software to flash "flyos-fast"
+
+### Flyos-fast
+
+They said it's a linux that is optimized for 3d printer with klipper, moonraker, fluidd, mailsail and klipperscreen preinstall. 
+
+**BUT**
+
+You can't exactly update it, you can't install apps, you basically just stuck with whatever it has. The os is in squashfs so you won't be able to install or change anything anyways.
+
+For a wireless klipperscreen it's.... fine ig?
+
+Originally planned on installing tailscale on it but I can't, technically I could but I would have to manually start the service everytime.
+
+> Yes I did tried to add it to systemctl but I can't since it's readonly
+
+sooo what's the problem here?
+
+They did advertise it for being use as a klipper board, it have serial, can bus and usb onboard afterall. If you do so, you are using a stock and quite possibility out of date klipper with no additional plugins.
+
+> Note: yes you can update the klipper but you would have to ssh in and git clone yourself, they did not configure the moonraker update in stock config. Plugins are limited to ones that can be done in git clone like Happy-hare and stuff but not octoapp, mobileraker or tailscale.
+
+They said they removed package managers to "maintain lightweight system".
+
+One of the core features of this "lightweight" system is that
+
+> Fast Boot: Optimized boot process, completes KlipperScreen startup within 30 seconds.
+
+Yeah i timed mine and it took over a minute to display the connecting screen, it was just a black screen during the entire time (other than the mellow logo on boot and a blinking cursor)
+
+Other things worth point out is that there is only root user, there are some tools I tried like brew requires a normal user not root so that didn't work.
+
+So why im i complaning now if it does what you expected it to anyways? Well in hopes of i can run a normal armbian distro i tried to flash my gemini image on to it only to discover they removed **all** armbian and replaced it with this flyos-fast. Which sort of pissed me off since gemini is like their flagship product yet they are trying to limit their customer in more ways. This is just gone too far, if you just looking for a printer that would just works and not have to touch it then fine but we know they won't touch these in the first place anyways so why are mellow limiting us?
+
+But thankfully for gemini at least, there is [someone forked armbian](https://github.com/reemo3dp/mellowfly-geminipi-armbian) and created a build for it so that is still a option if you are looking for. Other boards i really don't know, i would love to fork a armbian and create a build for this fly mini pad but im not skill enough to understand it.
+
+> Let me use me Pi clone as a pi goddammnit
+
+### TL:DR
+
+If you are looking to purchase a mellow product or a kit containing mellow product (siboor v0.2) be aware that you would likey get locked in their ecosystem with little customizability and confusing/limited documentation. If you want to, the workaround are quite annoying may require you to break something (like a pin in the stepper driver) or just out of luck (installing packages on os).
+
+![image of day one hater](/images/mellow/msg.webp)
+
+actual convo I had
+
+> Oh hey I got my voron around march 2025 so happy birthday v0.2!
+
+
+#### Refrences
+
+- [https://mellow-3d.github.io/fly-gemini_v3_wifi.html](https://mellow-3d.github.io/fly-gemini_v3_wifi.html)
+- [https://github.com/Mellow-3D](https://github.com/Mellow-3D)
+- [https://github.com/Mellow-3D/Fly-Gemini-V3](https://github.com/Mellow-3D/Fly-Gemini-V3)
+- [https://mellow.klipper.cn/docs/category/fly-gemini-系列主板](https://mellow.klipper.cn/docs/category/fly-gemini-%E7%B3%BB%E5%88%97%E4%B8%BB%E6%9D%BF) (it's in CN btw)
+- [Voron0.2 manual](https://github.com/VoronDesign/Voron-0/blob/Voron0.2r1/Manuals/VORON_V0.2r1_Assembly_Manual.pdf) (page 209)
+- [https://mellow.klipper.cn/docs/ProductDoc/MainBoard/fly-gemini/fly-gemini-v3/mainboard_user_guide/wiring#diag说明](https://mellow.klipper.cn/docs/ProductDoc/MainBoard/fly-gemini/fly-gemini-v3/mainboard_user_guide/wiring#diag%E8%AF%B4%E6%98%8E)
+- [https://mellow.klipper.cn/](https://mellow.klipper.cn/)
+- [https://mellow.klipper.cn/en/docs/DebugDoc/flyos-fast/flash](https://mellow.klipper.cn/en/docs/DebugDoc/flyos-fast/flash)
+- [https://mellow.klipper.cn/en/docs/DebugDoc/flyos-fast/plug-in/](https://mellow.klipper.cn/en/docs/DebugDoc/flyos-fast/plug-in/)
+- [https://github.com/Mellow-3D/build](https://github.com/Mellow-3D/build)
+- [https://reprap.org/wiki/RepRap_Machines](https://reprap.org/wiki/RepRap_Machines)
+- [https://en.wikipedia.org/wiki/Prusa_Research](https://en.wikipedia.org/wiki/Prusa_Research)
