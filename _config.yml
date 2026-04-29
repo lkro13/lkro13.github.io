@@ -28,6 +28,8 @@ twitter_username: lkro_13
 github_username:  lkro13
 discord_username: lkro13
 
+permalink: /:year/:month/:day/:title:output_ext
+
 # Build settings
 theme: minima
 plugins:

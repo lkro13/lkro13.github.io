@@ -1,0 +1,12 @@
+---
+layout: post
+title:  "Backdoor phone"
+date:   2026-04-2 11:54:00 +0800
+categories: android
+---
+
+if i still remeber to add this 
+
+if not here's a tl:dr for those digging through my repo for some reason ?
+
+My cousin bought a second hand phone for my grandma and turns it was backdoor and stealing whatsapp login info to send spam messages
