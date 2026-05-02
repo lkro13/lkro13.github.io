@@ -5,7 +5,10 @@ date:   2026-04-15 11:19:00 +0800
 categories: radio
 ---
 
-# [Jump to guides and instructions](#documentationguides)
+[Jump to guides and instructions](#documentationguides)
+
+[Jump to tools and resources](#references)
+
 
 
 
@@ -13,7 +16,7 @@ A few days ago (5 days ago to be exact), I received a carrozzeria AVIC-HRZ99 I b
 
 > fuck you fmx btw. it's not necessary at all but you declare as a business import when it's not so I had to pay your "agent"
 
-I even got a iPod adapter and all the wiring harness (yay!) (nvm the connector is not making good contact at all, good news is I already have another one)
+I even got a iPod adapter and all the wiring harness (yay!) (nvm the ipod connector is not making good contact at all, good news is I already have another one)
 
 Put it on the bench and everything works as it should except for the tilt which some super glue (temporary) fixed. I even got a minidisc and a burned DVD that left inside the radio lol.
 
@@ -25,7 +28,7 @@ For those who don't know, here's a quick introduction to HDD navi radio which mo
 
 Now for obvious reasons, the HDD is locked with a password if you tried to plug it in a computer. If you want to update the map data, you can either buy a upgrade DVD or send it back to Pioneer to have it update with a price of uhm 21,000 yen ????? that's expensive af. Of course the service is no longer provided so it's not like you can update it if you want to.
 
-It's a 30GB ide toshiba harddrive
+It's a 30GB ide toshiba hard drive
 
 ![hdd](/images/unlocking_hrz-99/hdd.webp)
 
@@ -33,7 +36,7 @@ It's a 30GB ide toshiba harddrive
 
 This isn't the first HDD radio I have, I already known it is locked with a password so tried searching online but with no luck at all. Best options I found are 
 
-- Wire in a extension cable and keep it powered while the headunit unlock the drive and hot swap to pc
+- Wire in a extension cable and keep it powered while the head unit unlock the drive and hot swap to pc
 - Sniff the signal to retrieve the password
 - Use a Fujitsu HDD and use a software to exploit something to get the password
 
@@ -53,13 +56,13 @@ Yay! but the link is dead since you need a account. Alright let's sign up for an
 
 ![0 forwarded email](/images/unlocking_hrz-99/0forwarded.webp)
 
-yeah i waited for an entire day and still not recevice the email
+yeah i waited for an entire day and still not receive the email
 
 (it's been almost 3 week and i still have not received it)
 
 __fuck__
 
-Oh someone mention they found on a specific russian tracker forum ok great, signup required -sigh again. But good news is the account system still functioning. ok found the torrent and retrived the metadata successfully anddddd stalled.
+Oh someone mention they found on a specific russian tracker forum ok great, signup required -sigh again. But good news is the account system still functioning. ok found the torrent and retrieved the metadata successfully anddddd stalled.
 
 After quite a while it did start downloading, at 4-10kb/s. Another day when by and the torrent finished downloading. Burned the cd and tried a few times to get into service mode. No idea why but it took a few tries, but it successfully entered
 
@@ -164,13 +167,13 @@ I did write a script, it can be found [here](https://github.com/lkro13/Pioneer-A
 
 ### Adding own songs
 
-My brother asked is it possible since I figured out how to extract it, theoractically as long as it's the same bitrate and replace the header with pioneer ones it should play.
+My brother asked is it possible since I figured out how to extract it, theoretically as long as it's the same bitrate and replace the header with pioneer ones it should play.
 
 if i successfully figured out i probably add to here
 
 [19/4/2026]
 
-ok im still tyring to figure out how to but this is just funny
+ok im still trying to figure out how to but this is just funny
 
 so if you replace one of the track in a disc that is not yet finished recording with your own AT3 (removed and replace with pioneer header) and you insert back the same disc, it will just start playing from the HDD instead of the disc
 
@@ -184,7 +187,7 @@ The issue is because he has a library of uhm, **1540** song (as of today) that's
 
 [28/4/2026]
 
-nvm tried to add my own from scratch and the headunit got pissed off and deleted the DB files
+nvm tried to add my own from scratch and the head unit got pissed off and deleted the DB files
 
 ## Map data
 
@@ -253,7 +256,7 @@ A song is about ~3-4MB in AT3 compression, and my entire library of about 1550 t
 
 It boot up much faster now tho.
 
-Also the stupid adapter i have used a through hole pin header instead of surface mounted header so i ended up having to design a entire new tray to compesate for the pin poking out so you should keep that in mind if you decide to get a adapter instead of a direct ide ssd. You can carefully insert it into the ide connector and pull the entire board up and shove the tray back in. Obviously it won't be good for the connect long term, you could tape the switch down as well so you won't have to use the tray.
+Also the stupid adapter i have used a through hole pin header instead of surface mounted header so i ended up having to design a entire new tray to compensate for the pin poking out so you should keep that in mind if you decide to get a adapter instead of a direct ide ssd. You can carefully insert it into the ide connector and pull the entire board up and shove the tray back in. Obviously it won't be good for the connect long term, you could tape the switch down as well so you won't have to use the tray.
 
 ## MSV song converter
 
@@ -346,6 +349,9 @@ wizTree
 
 vsc (for shiftjis)
 
+# Tool created
+
+[Pioneer-AT3](https://github.com/lkro13/Pioneer-AT3)
 
 ![lmao](/images/unlocking_hrz-99/batch_std.webp)
 
@@ -355,11 +361,11 @@ vsc (for shiftjis)
 
 oh hey you are still here, if you noticed the commit date is much later than the tagged date it's because i kinda got distracted in figuring out stuff. I started writing this when i got the first AT3 playing and is way too excited to document this thing since after all, the avic forums is sort of dead ? and me and my brother put quite a lot of effort into searching for the hdd unlock method.
 
-I never knew one day i would take on such project, documenting and figuring out stuff by myself (my brother is not a programmer, he just help me find some stuff). Always wanted to reverse engineer something but 9/10 times failed so it kinda the reason why i got really excited when i got the at3 playing. Now that i sort of figured out how the Music server work, i have started to look into the kwi files. It's not gonna be easy since the tools are either outdated or cannot run at all (kiwiread on github, and another written in ruby in a Japanese blog, also the python one but it's for loading.kwi which is for firmwares as far as i can tell), but at least i have the documents and it's gonna be a while.
+I never knew one day i would take on such project, documenting and figuring out stuff by myself (my brother is not a programmer, he just help me find some stuff). Always wanted to reverse engineer something but 9/10 times failed so it kinda the reason why i got really excited when i got the at3 playing. Now that i sort of figured out how the Music server work, i have started to look into the kwi files. It's not gonna be easy since the tools are either outdated or cannot run at all (kiwiread on github, and another written in ruby in a Japanese blog, also the python one but it's for loading.kwi which is for firmware as far as i can tell), but at least i have the documents and it's gonna be a while.
 
 I stared at the ATRAC3 file for so long, I can tell you exactly where is the AT3 frame start by looking at the hex. I am very happy for the minidisc community, they gather plenty information in one place. That's how i found the user manual as well as a article about the release of the radio which mentioned it used ATRAC3. Plus ATRAC3 are much commonly used in minidisc so their list of tools did help a bit. **DO NOT INSTALL SONIC STAGE ON WINDOWS 11** it will cause your pc to not boot. [Follow this guide to fix it](https://www.reddit.com/r/Windows11/comments/1hu8er2/psa_pxhlpa64sys_causes_boot_issues_in_newest/) or delete `PxHlpa64.sys` from `Windows\System32\drivers` if you are able to boot into another os
 
-I hope that this post help with you or someone would like to tinker with their headunit, the numbers of forums i went through to get the HDD unlocked is messy already and (in my research at least) no one has figured out how to get the AT3 files working. Oh hey if you got more information that you would like to tack on, feel free to send me a message. I would love to learn more about how their system works.
+I hope that this post help with you or someone would like to tinker with their head unit, the numbers of forums i went through to get the HDD unlocked is messy already and (in my research at least) no one has figured out how to get the AT3 files working. Oh hey if you got more information that you would like to tack on, feel free to send me a message. I would love to learn more about how their system works.
 
 I really hope that no one would use the tools to sell it as a "service". I really believe such tools should be free and accessible to anyone since after all, it is a discontinued and obscure product. Im doing this for fun and on my time as well, it won't be fair if someone took others people work for free and sell to someone. Unfortunately i know it's gonna happen someday especially if i got a map converter working since the "carrozzeria" brand makes people pay stupid amount of money to get one from here even is it's just a remote (~55$ for a passive crossover, ~20$ for a used remote, ~10$ for just a single rca video cable????) you can imagine if someone on idk facebook or some shit advertise a service to load the local maps on the radio for probably high price as well.
 
@@ -367,7 +373,7 @@ My goal in getting the AT3 working is preserving the data of the last owner as t
 
 Also how the fuck do yall get a fucking LLM to sequence your DNA while my LLM keep telling me to give up or basically being useless???? I tried to use Gemini multiple times and they still provide garbage result. The worst is the "Thinking" models, they hallucinate so damn much. Hell even on Gemini fast it keep giving me tools that doesn’t even exist _don’t you have access to everyone data as well as the document you scrape??_
 
-Right i did mention i have another hdd car radio as well, it's a Honda gathers for those who are wondering. I accidently broke the display ribbon while tyring to clean off the corrosion :/. To be fair i did bought it knowingly broken since i got for for basically ~2$ from a flooded vehicle. I do also have another again "broken" carrozzeria but it's a DVD navi. Both turns on and the Honda gathers at least functioning but the carrozzeria have a broken screen and i don't have the dvd for it to turn on. I did found a dump on the tracker site tho, just need a dual layer dvd, a functional screen and a working dvd drive for it.
+Right i did mention i have another hdd car radio as well, it's a Honda gathers for those who are wondering. I accidentally broke the display ribbon while trying to clean off the corrosion :/. To be fair i did bought it knowingly broken since i got for for basically ~2$ from a flooded vehicle. I do also have another again "broken" carrozzeria but it's a DVD navi. Both turns on and the Honda gathers at least functioning but the carrozzeria have a broken screen and i don't have the dvd for it to turn on. I did found a dump on the tracker site tho, just need a dual layer dvd, a functional screen and a working dvd drive for it.
 
 Got distracted and write more than i should :p
 

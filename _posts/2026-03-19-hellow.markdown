@@ -4,7 +4,7 @@ title:  "Hellow!"
 date:   2026-03-19 12:34:19 +0800
 categories: introduction
 ---
-not sure how im gonna start with this but i just figured out this jekyll thingy. Of cource as you can see it's quite basic right now in fact it is the default theme actually.
+not sure how im gonna start with this but i just figured out this jekyll thingy. Of course as you can see it's quite basic right now in fact it is the default theme actually.
 
 > can't figure out the themes rn :/
 
@@ -18,12 +18,40 @@ Inspired by my friend (i know you're gonna reading this), plus i do like sharing
 
 This is gonna be served as a way for me to write stuff and document (hopefully?) for no one lol
 
-It's a start for sure, i'll definetly have some things to write about
+It's a start for sure, i'll definitely have some things to write about
 
-so yeah hellow random strangers that come across this uhm thing.
+so yeah hellow~ random strangers that come across this uhm thing.
 
-> i know i misspell hello this is because i write too many hello world and some how it became natural to type hellow :3
+> i know i misspell hello this is because i write too many hello world and somehow it became natural to type hellow :3
 
 since you are here, i'll let you know that my username is in fact a shorten version of a nickname
 
 also, RSS ???? i haven't heard that in such a long time
+
+Oh btw if you are learning web programming (not using framework), i highly suggest you take a read of this [blog post](https://lyra.horse/blog/2025/08/you-dont-need-js/) (not mine, not affiliated, idk who she is) it really shows how much css can do. You don't really need 100+ node modules for a simple website. Hell I actually do not know how to even use framework at all :p all my web project are coded with just html, css and javascript (yes not even typescript)   
+
+also the "centering div" shit? you telling me the entire fucking time i just need like
+
+```
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+```
+
+instead of the width:50%; transform: translateX(-50%); margin: auto; whateverthefuck: element; ???? ~~fuck you w3school~~ (seems like they have change just a few months ago but still)
+
+sigh i have used the 50% thingy so many times as well as manually tweak to my own pages, only for it to break for some i'll probably going to rewrite my project if it becomes a mess 
+
+<div style="height: 50vh"></div>
+
+(except for gndb im no longer maintaining that shit fuck mihoyo/congosphere/hoyoverse) 
+
+> no i did not lose my "pity" for a character i want more like they dragged the story, put it behind limited time event, fucking long "grind" to build "stronger" characters and imo cater towards hardcore gamer rather than casual ones like srs why would you removed the game mechanic that makes ZZZ unique???? they are the fucking reason why i stop gaming for such a long time until i discovered portal and ultrakill.
+
+<h1 style="color: #FFF">Hellow reader mode users!</h1>
+
+<p style="color: #FFF">Yeah you can stereotype me based on the games and some identifiers on this page alone</p>
+
+<p style="color: #FFF">You can figure it out. I won't confirm or deny anything. iykyk</p>

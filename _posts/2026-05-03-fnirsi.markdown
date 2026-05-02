@@ -1,0 +1,125 @@
+---
+layout: post
+title:  "Fnirsi HS-01 teardown"
+date:   2026-05-3 00:48:00 +0800
+categories: tools
+---
+
+### THIS IS NOT A REVIEW
+
+#### [Jump to teardown part](#teardown-guide-or-some-shit-idk)
+
+About a year and a half ago, I decide to get myself a portable soldering since I was moving to my university dorm at the time and it would be nice to have a type-c powered soldering iron. It's something that I don't think I would use often but would really nice to have when I need it. 
+
+I got the set with all the accessory except for the 65w charger since I have 2 anyways.
+
+I did not expect to like it that much but it has been my main soldering iron even if I travel back home. The fact that I can easily powered it with just a power bank means that I can solder anywhere I want. Plus, 60w type c cables are quite thin (compare to normal irons) means that it is extremely easy to move around. The tips are quite nice as well, I believe they have some sort of coating ? as I notice it doesn't corrode or become dull like my other irons. (Probably a common thing on more expensive irons)
+
+Since I have the full iron set, I even manage to do some micro soldering with it although not successfully but way better than using my old iron. (I warped the connector with the old iron and did not notice it)
+
+fast forward to a few days ago when I use it to put some heat insert into the HDD tray, I plugged it in andddd nothing. 
+
+At first I thought it was my charger since that thing can be picky at times, I pull out my power bank only to discovered that it still works but the display is broken
+
+![power bank clearly showing power draw despite the screen is off](/images/hs-01/disp-broken.webp)
+
+:/
+
+Welp I don't really wanna spend another $50 on another one or a HS-02 (although I really like the new case) I took it apart to see what I can do
+
+Dissembling it is rather easy, just remove the tip, pop off the end cap, remove the rubber grip, remove the display bezel and button and you can slide the entire thing out.
+
+The entire board is surprisingly small and it seems like the entire vertical space was just taken up by the tip and a capacitor.
+
+![the main board](/images/hs-01/pcb.webp)
+
+The display ribbon doesn't seems like damaged or anything so I tried to just reflow the solder to see if it doesn't anything
+
+![working outside of case](/images/hs-01/re1-dissamble.webp)
+
+It works! yay!
+
+> that was easy
+
+when ahead and reassemble everything and
+
+![not working inside of case](/images/hs-01/re1-assemble.webp)
+
+nothing 
+
+=_=
+
+> took it apart again sigh-
+
+maybe my soldering is not making a good connection since my old iron looks like this
+
+![extremely oxidized soldering iron tip](/images/hs-01/tip.webp)
+
+Well unfortunately I misplaced all the tips somehow (probably accidentally knock the container over and did not bother to search for it) so I ended up pulling out my even older iron which have a flat and small enough tip.
+
+![reflowing display ribbon again](/images/hs-01/reflow2.webp)
+
+and it only works if the screen is 90° t(-.-t)
+
+![display in 90 degree](/images/hs-01/re2-90.webp)
+
+Seems like the display ribbon is fucked in a way I cannot see, all I can do now is set the temperature to where I want and hopefully find a replacement display.
+
+I fucked up the acrylic bezel badly but hey, it satisfy my curiosity now.
+
+# Teardown guide or some shit idk
+
+1. Remove the iron tip
+
+2. Pull the rubber grip out
+
+3. Remove the end cap by using something thin
+
+4. Remove the display bezel using the same tool (I found it easier to pry on the top edge)
+
+5. Remove the button and pull the entire thing out from the iron tip entrance(?)
+
+![iron with display bezel, rubber grip and end cap removed](/images/hs-01/dis-1.webp)
+
+![iron fully dissemble](/images/hs-01/dis-full.webp)
+
+The main ic is a CH571F along with CH224K PD trigger IC which from the datasheet it supports BLE ???
+
+![image of main ic with usb pd trigger ic](/images/hs-01/main-ic.webp)
+
+The mosfet seems to be 7409
+
+![image of mosfet](/images/hs-01/mosfet.webp)
+
+as for the display, the best I can find is probably a SSD1316 128x32 14 pin OLED. It contains the following marking
+
+- LT1316P02C
+- L2832TSWV
+- P241309-18-A024
+
+![image of display ribbon + backside](/images/hs-01/disp-label.webp)
+
+# useful resources
+
+[IronOS issue thread](https://github.com/Ralim/IronOS/issues/1614) < more images of pcb as well as a incomplete schematic
+
+[Video teardown](https://www.youtube.com/watch?v=LLIEbJob2js)
+
+#### ending notes
+
+Overall I would say it's a pretty good soldering iron, especially if you are a beginner. It's nice to have a iron that doesn't required a dedicated area just for it. But the display seems like it is sort of common issue ? maybe idk I saw someone else has the same problem and I do think it's a issue as how tight they bend the ribbon. Another issue I saw other people have is where a power regulator just blew up for no reason at all so QC might be hit or miss. 
+
+Also is is quite funny that a soldering iron that can have firmware update. Hell I actually updated mine lol, idk what they fixed (I think it's something to do with temperature calibration) but it at least good to know the patched out whatever bugs they find (which again is funny as a iron just need to regulate the temperature). As you can see above, I came across IronOS seems like they are a third party firmware for soldering iron. No idea when they would add support for it or what features they have would make someone to install on their iron.
+
+I have like uhm 5 irons at this point non temperature control hakko, wellers, a china oem with hot air gun, another uncontrollable iron and this HS-01. Im thinking of getting a ts210 someday when I move out and have my own workstation maybe a HS-02 as well(I srs love the case). Oh right I still have a oscilloscope to fix _fuck_.
+
+> Oscilloscope power supply issues are fun. You won't know if something is oscillating incorrectly without another scope. - u/Adam2013
+
+> _Just like how you need a soldering iron to fix a soldering iron_
+
+If for whatever reason you are following along my journey on deciphering pioneer files, I have good news for you. I have figured out the MSV partition (mostly) and successfully inserted a entire new album without using their cd ripper while retaining **all** functionality (artist list, genre list, voice search etc etc). Most likely I'll be writing about it soon, just taking a break rn to do something else (aka fixing my iron). Probably also write the tools to add and maybe edit the files. As for the kiwi, kinda stuck rn so it would take much longer. 
+
+> I worked on it so much I almost forgot I still have assignment 2 -.-
+
+I know jekyll default theme is horrible but it will do for now. After all I do need some content first before I commit to making my own themes.
+

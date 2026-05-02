@@ -5,13 +5,13 @@ date:   2026-03-31 2:19:00 +0800
 categories: printer
 ---
 
-Mellow somehow made me to never buy their stuff ever again, to explain how the fuck this happend we have to go back to the day I got my Voron kit
+Mellow somehow made me to never buy their stuff ever again, to explain how the fuck this happened we have to go back to the day I got my first Voron kit
 
 [tldr below if you don't care](#tldr)
 
 ### 1 year ago
 
-About 1 year ago I got my Voron 0.2 kit from siboor, and for some reason the selling point was the motherboard. It was a mellow fly gemini v3 to be exact, it basically a SBC with a 3d printer motherboard build in. The specs are... not that impressive in my opinoin 
+About 1 year ago I got my Voron 0.2 kit from siboor, and for some reason the selling point was the motherboard. It was a mellow fly gemini v3 to be exact, it basically a SBC with a 3d printer motherboard build in. The specs are... not that impressive in my opinion 
 
 - Allwinner H5
 - 1GB DDR3
@@ -20,13 +20,13 @@ About 1 year ago I got my Voron 0.2 kit from siboor, and for some reason the sel
 
 Following Voron docs they assume you used a BTT skr pico with a pi 4 which I guess you can say it similar enough. There are few annoyance like there is no wifi onboard, one of the usb port is disabled, ~~flashing the stm required much more complicated steps that is not even documented~~.[They have added the docs now but in their CN website, back then i refer to someone gist on flashing]
 
-Hell, went I first boot up the klipper is extremely out of date and the fun part? you can't actually update it using stock moonraker method. So I went ahead and cloned KIAUH and update it from there, and I got a mesaage when I login now
+Hell, went I first boot up the klipper is extremely out of date and the fun part? you can't actually update it using stock moonraker method. So I went ahead and cloned KIAUH and update it from there, and I got a message when I login now
 
 > self compiled no support provided
 
-uhmm okay? I thought this is expected when someone bought a voron kit anyways. But yeah that fucking breaks everything nothing works anymore. So I went on google found a fly-os image and flash it and reconfigured it as if it was a new klipper install and everything works as expected. 
+uhmm okay? I thought this is expected when someone bought a Voron kit anyways. But yeah that fucking breaks everything nothing works anymore. So I went on google found a fly-os image and flash it and reconfigured it as if it was a new klipper install and everything works as expected. 
 
-> Although this likey to be from siboor but im not sure
+> Although this likely to be from siboor but im not sure
 
 But since the day I bought it, I already disliked mellow.
 
@@ -36,16 +36,16 @@ Did you know the entire 3d printing community is build on open source? Prusa was
 
 > Voron and prusa is a reprap, in case my wording isn't clear enough. Both are recognized in the reprap wiki.
 
-Creality, another popular printer manufacutre best known for their ender 3 series (also got shit on because people won't stop comparing a 2025 printer to a 2018 printer) there is a point where creality got called out for not following open sources license and not provide the source at all. It got to a point where people are like "Do not buy from this company at all" until they fully open source the ender 3.
+Creality, another popular printer manufactures best known for their ender 3 series (also got shit on because people won't stop comparing a 2025 printer to a 2018 printer) there is a point where creality got called out for not following open sources license and not provide the source at all. It got to a point where people are like "Do not buy from this company at all" until they fully open source the ender 3.
 
 > Ender 3 is actually fully open source as in even the cad files are available, not just the firmware (marlin)
 
-Mellow has a github but for my motherboard specific, there is just pinout, a schematic and a precompiled bootloader that's about all. Hell even the pinout isn't even complete, I had to search the schemetic only to found out a pin I want to use is shared with the stepper motor.
+Mellow has a github but for my motherboard specific, there is just pinout, a schematic and a precompiled bootloader that's about all. Hell even the pinout isn't even complete, I had to search the schematic only to found out a pin I want to use is shared with the stepper motor.
 
 Their repo for my board said 
 > We are not Mellow employees, just 3D printer enthusiasts
 
-Yet mellow offical site linked to this github profile. So is it by mellow or the community ? idk
+Yet mellow official site linked to this github profile. So is it by mellow or the community ? idk
 
 According to my fly-os build, it is armbian ~~but I didn't found a armbian repo anywhere in mellow profile~~.Found it, it was called "build" for some odd reason.
 
@@ -53,15 +53,15 @@ According to my fly-os build, it is armbian ~~but I didn't found a armbian repo 
 
 My kit has a stepper driver dead on arrival on z axis, so I went online and bought a new TMC2209 from BTT (they are the only one that has local stock). After it arrived, replaced the A488 I temporary stuck on it andddd my z axis won't home :/ which is weird.
 
-> For some context my kit has XY sensorless homing while the z has a microswitch at the bottom
+> For some context my kit has XY senseless homing while the z has a microswitch at the bottom
 
 Went online, said to remove the stepdir pin jumper from motherboard as that is shared with the sensor pin. Removed the stepper driver only to find there isn't one? uhh went to mellow docs only to found out there is not not a jumper for it. Soooo how do you disable it? Well if you used mellow's TMC2209 there is a switch under it but only mellow does this the BTT stepper I used obviously don't have, mellow solution for non-mellow specific is to cut the pin off.
 
 ![image of the stepper here](/images/mellow/stepper.webp)
 
-Mellow on the left, BTT on the right. _notice the little switch up ontop on mellow?_
+Mellow on the left, BTT on the right. _notice the little switch up on top on mellow?_
 
-Since I alredy spend the money on a new stepper and I don't want to limit my future options, I just swap the z with the y driver.
+Since I already spend the money on a new stepper and I don't want to limit my future options, I just swap the z with the y driver.
 
 The lack of onboard wifi card is annoying but siboor did include a wifi usb dongle so it isn't that annoying, but let's say if you want to use the m.2 port you would have to find a specific supported card in the short list **or** buy one from them with onboard storage.
 
@@ -73,7 +73,7 @@ From then on I was like if this board ever died on me someday, imma replace it w
 
 Oh hey did you know the fan mosfet is on a external board? They said it is for easy replacement if you ever break it. But again only they have, I'll let this slide as no other company does this. Although this did cause some confusion
 
-During my build process I have post my build process it on discord another guy came across my build log and was waiting for his. Few weeks later, I went to his build log and he was trying to figure it out why his fan was not working turns out the mosfet was not plugged it. Sort of siboor fault as they did not mention it in the manual or plugged from the factory. I know this because I research on the board before I even recevied it.
+During my build process I have post my build process it on discord another guy came across my build log and was waiting for his. Few weeks later, I went to his build log and he was trying to figure it out why his fan was not working turns out the mosfet was not plugged it. Sort of siboor fault as they did not mention it in the manual or plugged from the factory. I know this because I research on the board before I even received it.
 
 ### Present time
 
@@ -95,13 +95,13 @@ You can't exactly update it, you can't install apps, you basically just stuck wi
 
 For a wireless klipperscreen it's.... fine ig?
 
-Originally planned on installing tailscale on it but I can't, technically I could but I would have to manually start the service everytime.
+Originally planned on installing tailscale on it but I can't, technically I could but I would have to manually start the service every time.
 
 > Yes I did tried to add it to systemctl but I can't since it's readonly
 
 sooo what's the problem here?
 
-They did advertise it for being use as a klipper board, it have serial, can bus and usb onboard afterall. If you do so, you are using a stock and quite possibility out of date klipper with no additional plugins.
+They did advertise it for being use as a klipper board, it have serial, can bus and usb onboard after all. If you do so, you are using a stock and quite possibility out of date klipper with no additional plugins.
 
 > Note: yes you can update the klipper but you would have to ssh in and git clone yourself, they did not configure the moonraker update in stock config. Plugins are limited to ones that can be done in git clone like Happy-hare and stuff but not octoapp, mobileraker or tailscale.
 
@@ -115,15 +115,15 @@ Yeah i timed mine and it took over a minute to display the connecting screen, it
 
 Other things worth point out is that there is only root user, there are some tools I tried like brew requires a normal user not root so that didn't work.
 
-So why im i complaning now if it does what you expected it to anyways? Well in hopes of i can run a normal armbian distro i tried to flash my gemini image on to it only to discover they removed **all** armbian and replaced it with this flyos-fast. Which sort of pissed me off since gemini is like their flagship product yet they are trying to limit their customer in more ways. This is just gone too far, if you just looking for a printer that would just works and not have to touch it then fine but we know they won't touch these in the first place anyways so why are mellow limiting us?
+So why im i complaining now if it does what you expected it to anyways? Well in hopes of i can run a normal armbian distro i tried to flash my gemini image on to it only to discover they removed **all** armbian and replaced it with this flyos-fast. Which sort of pissed me off since gemini is like their flagship product yet they are trying to limit their customer in more ways. This is just gone too far, if you just looking for a printer that would just works and not have to touch it then fine but we know they won't touch these in the first place anyways so why are mellow limiting us?
 
 But thankfully for gemini at least, there is [someone forked armbian](https://github.com/reemo3dp/mellowfly-geminipi-armbian) and created a build for it so that is still a option if you are looking for. Other boards i really don't know, i would love to fork a armbian and create a build for this fly mini pad but im not skill enough to understand it.
 
-> Let me use me Pi clone as a pi goddammnit
+> Let me use me Pi clone as a pi goddammit
 
 ### TL:DR
 
-If you are looking to purchase a mellow product or a kit containing mellow product (siboor v0.2) be aware that you would likey get locked in their ecosystem with little customizability and confusing/limited documentation. If you want to, the workaround are quite annoying may require you to break something (like a pin in the stepper driver) or just out of luck (installing packages on os).
+If you are looking to purchase a mellow product or a kit containing mellow product (siboor v0.2) be aware that you would likely get locked in their ecosystem with little customizability and confusing/limited documentation. If you want to, the workaround are quite annoying may require you to break something (like a pin in the stepper driver) or just out of luck (installing packages on os).
 
 ![image of day one hater](/images/mellow/msg.webp)
 
@@ -147,5 +147,6 @@ actual convo I had
 - [https://reprap.org/wiki/RepRap_Machines](https://reprap.org/wiki/RepRap_Machines)
 - [https://en.wikipedia.org/wiki/Prusa_Research](https://en.wikipedia.org/wiki/Prusa_Research)
 
+sorry for the lack of images, I basically write this from memory
 
 ###### RIP myrient <3
