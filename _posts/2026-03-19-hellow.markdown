@@ -26,6 +26,18 @@ since you are here, i'll let you know that my username is in fact a shorten vers
 
 also, RSS ???? i haven't heard that in such a long time
 
+![psp showing rss error](/images/hellow/batch_psp%20rss.webp)
+
+aw
+
+but ig the webpage itself does work? if you can get the ssl to work (local server here)
+
+![psp displaying page without styling](/images/hellow/batch_psp.webp)
+
+ok i did "technically" cheat a bit by using a adrenaline but it is exactly showing what my psp-3000 shows (no idea why my screenshot plugin won't work)
+
+![vita displaying page just fine](/images/hellow/batch_vita.webp)
+
 Oh btw if you are learning web programming (not using framework), i highly suggest you take a read of this [blog post](https://lyra.horse/blog/2025/08/you-dont-need-js/) (not mine, not affiliated, idk who she is) it really shows how much css can do. You don't really need 100+ node modules for a simple website. Hell I actually do not know how to even use framework at all :p all my web project are coded with just html, css and javascript (yes not even typescript)   
 
 also the "centering div" shit? you telling me the entire fucking time i just need like

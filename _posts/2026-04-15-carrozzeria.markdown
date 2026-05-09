@@ -254,6 +254,8 @@ it arrived and i clone it to a 128gb m.2 ssd and extend the MSV partition and no
 
 A song is about ~3-4MB in AT3 compression, and my entire library of about 1550 takes up 18GB in aac and alac compression which is about ~6-24MB per file. So yeah it is overkill.
 
+Just for fun tho, I convert all the music to 44.1kHz 16bit WAVs (aka cd quality) which it takes up about 52GB. (i need it to be 44.1khx 16 bit wavs to convert to atrac3)
+
 It boot up much faster now tho.
 
 Also the stupid adapter i have used a through hole pin header instead of surface mounted header so i ended up having to design a entire new tray to compensate for the pin poking out so you should keep that in mind if you decide to get a adapter instead of a direct ide ssd. You can carefully insert it into the ide connector and pull the entire board up and shove the tray back in. Obviously it won't be good for the connect long term, you could tape the switch down as well so you won't have to use the tray.
