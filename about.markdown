@@ -33,3 +33,12 @@ Fun fact! this sites used webp compression. why? ~~because i can~~ I don't like 
 3. inkscape does not
 
 4. idk what encoder i can use
+
+<div style="opacity:0">
+<h2>Hellow reader mode/rss users or scrapers!</h2>
+<p>There will be little things like this hidden paragraphs through out the blog</p>
+<p>some may have some might not, depends on my mood</p>
+<p>but yeah this is basically like a "easter egg" or "extra content" you won't see on the page unless you are the above mention users</p>
+<p>It won't appear if you are using some sort of dark reader extension. the only way you can see is by copying all or use reader mode/rss or viewing the source code</p>
+
+</div>
