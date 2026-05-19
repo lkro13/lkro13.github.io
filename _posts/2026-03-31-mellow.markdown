@@ -73,8 +73,13 @@ From then on I was like if this board ever died on me someday, imma replace it w
 
 Oh hey did you know the fan mosfet is on a external board? They said it is for easy replacement if you ever break it. But again only they have, I'll let this slide as no other company does this. Although this did cause some confusion
 
+<detail block="markdown">
+
+<summery>the confusion</summery>
+
 During my build process I have post my build process it on discord another guy came across my build log and was waiting for his. Few weeks later, I went to his build log and he was trying to figure it out why his fan was not working turns out the mosfet was not plugged it. Sort of siboor fault as they did not mention it in the manual or plugged from the factory. I know this because I research on the board before I even received it.
 
+</detail>
 ### Present time
 
 Few months go by Im super happy with my voron, throw some mods here and there and slowly I was like
@@ -115,7 +120,7 @@ Yeah i timed mine and it took over a minute to display the connecting screen, it
 
 Other things worth point out is that there is only root user, there are some tools I tried like brew requires a normal user not root so that didn't work.
 
-So why im i complaining now if it does what you expected it to anyways? Well in hopes of i can run a normal armbian distro i tried to flash my gemini image on to it only to discover they removed **all** armbian and replaced it with this flyos-fast. Which sort of pissed me off since gemini is like their flagship product yet they are trying to limit their customer in more ways. This is just gone too far, if you just looking for a printer that would just works and not have to touch it then fine but we know they won't touch these in the first place anyways so why are mellow limiting us?
+So why im i complaining now if it does what you expected it to anyways? Well in hopes of i can run a normal armbian distro i tried to flash my gemini image on to it only to discover they removed **all** armbian and replaced it with this flyos-fast. Which sort of pissed me off since gemini is like their flagship product yet they are trying to limit their customer in more ways. If you're just looking for a printer that would just works and not have to touch it then _fine_ but we know they won't touch these in the first place anyways so why are mellow limiting us?
 
 But thankfully for gemini at least, there is [someone forked armbian](https://github.com/reemo3dp/mellowfly-geminipi-armbian) and created a build for it so that is still a option if you are looking for. Other boards i really don't know, i would love to fork a armbian and create a build for this fly mini pad but im not skill enough to understand it.
 
