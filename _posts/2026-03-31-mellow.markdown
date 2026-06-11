@@ -136,6 +136,19 @@ actual convo I had
 
 > Oh hey I got my voron around march 2025 so happy birthday v0.2!
 
+## Update 12/6/2026
+
+oh hey it's about to be final exam as well as my sem break so im preparing to bring back home some stuff. Might as well update my klipper since i did not for months now, oh new klipper firmware as well? flashing klipper not a big deal really. Except this is mellow we are talking about, guess fucking what
+
+the tool needed to flash my board is no longer provided. _yay!_
+
+> thanks a lot t(-.-t)
+
+good news is with _(apparently)_ newer klipper firmware you can just flash it without any other steps (just make + flash no need pulling jumper and stuff).
+
+also i saw someone is forking armbian for other mellow boards, so good news for other ? either way i still standby what i said and i would not return to this company ever.
+
+
 
 #### Refrences
 
