@@ -1,28 +1,32 @@
 ---
 layout: post
 title:  "Reading MSV database"
-
+date:   2026-07-15 11:19:00 +0800
 categories: radio
 ---
 
-# date:   2026-04-15 11:19:00 +0800 < date started
+# TODO ADD THE IMAGES
 
-# WIP 
+imma post this first, i really need source control for this plus i have started refrenceing to this and it's annoying having to open another vsc to look at it sooooooo gonna publish first
 
-if for whatever reason you are reading the repo instead
-
-change the date later
-
-Before we start, yes LLMs were used but they are being useless as usual. Although gemini did figured out the timestamp part but that's all.
-
-> I don't have friends that do this type of shit ok?
-
-Also this is all over the place as im still in the process of figuring out exactly how each files are created.
+This is all over the place as im still in the process of figuring out exactly how each files are created.
 
 I know it's a mess i hope this toc can help a bit, i still trying to figure out jekyll as well as how their plugin works
 
 * toc
 {:toc}
+
+# Introduction
+
+Since the original entry was long enough, i thought may as well seperate them and go much more indepth and document things along the way. As you can see it quite long already so yeah use the toc as a guide to hop around this entry. I believe i got most of the files now? i cannot confirm anything will be exactly the same as yours, use this as a reference only. i'm a human and human can make mistakes. There are still a few files i did not figuired out but this only contains files that are required to manually writing the database just enough to list the tracks.
+
+also there is a toc2somethingsomething file, I found out the hard way **that** file has a affect on cd playback. I did not looked into how it structure, but what i discovred is if the entry does not match up with the amount of "albums" in the MSV it **will** not list cd tracks _for some reason_. I **might** add it at a later date if i ever figured out. For now a temporary fix is to copy the same entry (about 412 bytes) and paste it a few times, change the ids and the total track (right next to file version).
+
+## WARNING
+
+This is **not** a complete documentation on the file structure, it is made based entirely on **assumptions and my own experiments**. Only use this as reference and experiment on your own, **keep backups** of the files. I'm **not** responsible for any data loss, create/modify at your own risk.
+
+ok let's start
 
 # File structure ?
 
@@ -266,13 +270,15 @@ _next 3 bytes of padding_
 
 next 1 byte or `trackIndicator` byte. again not sure but is is constant accorss all files except the last track where is just `00` instead of `64` 
 
-> Gemini said it is volume ? i don't trust it
+> Gemini said it is volume ? i don't trust it plus i tried, did absoutly nothing
 
 15 bytes of constant data again. then timestamp ts is so damn stupid actually it literally is just yyyymmddhhmmss in hex
 
 > why i did not notice it until gemini points it out? 
 
 Because i have the gps attena plugged in and it **has** the correct time but for some reason the system is stuck at 2006-09-13 22:07:21 while i ripped the disc in idk _fucking 2026????_
+
+> wait assuming the date is defaulted to the release date, this thing is just older than me by 3 months ???? _anyways_
 
 then we have `02` for idk seems constant as well then 49 bytes of padding. repeat ts till end
 
@@ -289,6 +295,8 @@ i did not look into it at all but the syntax does looks like others
 this is where the actual music data is stored
 
 also there is a image folder here ? no idea what it's for
+
+> pioneer navi studio for other models suggest that it is used for album art that you can burn into a disc and it will add to it. Mine does not have that feature even though **it's a fucking black colored of hrz-88**
 
 contains 10 folder as well from OPL01-OPL10
 
@@ -385,6 +393,8 @@ MSV/
 ~~might be my disc label is wrong but im not sure~~
 
 i fucking just realized i put the wrong id. imma test with a new one and report back
+
+nvm it just create a new file for that artist
 
 > fuck
 
@@ -657,6 +667,47 @@ struct dat{
 dat data @ 0x00;
 ```
 
+### TOC2OPL.TBL
+
+this is what i have figured out so far, might be inaccurate since im guessing based on the disc cue file i have. I away from home right now and don't have access to a disc drive.
+
+```
+#include "std/mem.pat"
+
+struct trackOffset{
+    u8 minutes;
+    u8 seconds;
+    u8 miliseconds;
+    u8 paddings;
+
+};
+
+struct tocentry{
+    u16 id;
+    u32 fixedByte;
+    u16 paddings;
+    u8 totalTracks;
+    u8 totalMinutes;
+    u8 totalSeconds;
+    u8 totalMiliseconds; //(idk not sure)
+    u8 paddingss;
+    u8 unsure; //might be a fixed byte ?
+    u16 paddingsss;
+    
+    trackOffset data[99];
+    //u8 data[396]; //uncomment this and comment above if you don't wanna get confused
+};
+
+struct toc2opl{
+    char version_num[12];
+    u16 totalEntry;
+    u16 paddings;
+    tocentry tocentry[while(!std::mem::eof())] [[comment("Tracks")]];
+};
+
+toc2opl toc@0x00;
+```
+
 > it's already 463 lines ? damn i haven't even add docs for how it records the songs
 
 > andddd now we're at 656 lines!
@@ -673,6 +724,31 @@ google translate
 
 deepl
 
+> Questions ? send me a mesage on discord or twitter or open a github issue, ill get back to you (maybe)
+
+<p style="opacity:0; height:0;">I won't bite... most of the time</p>
+
+## Tools 
+
+MSV_TOOL (someday)
+
+# Closing notes
+
+As you can see it's been a while since my last entry even though this is mostly complete, i got so damn burned out from the projects, presentation and finals im not in the mood to even open vsc. I spend my entire break playing games with my friends, baking brownies and fixing some stuff (i know odd combo). Originally planned to release this along with the tool i have written but it's quite a mess so uh someday maybe. i can release it as is but even i got confused lol. As for the kiwi file, yeah i give up it's wayyyy too outside of my skill. If someone is interested in picking it up, i can send you the entire spec document (in english) as well as 2 sample kiwi map file and a work in progress hex pats.
+
+One of my groupmate suddenly dropout in the middle of the semester so i ended up having to lead 3 groups + handle a project that was meant for 5 people but with just 2. Not to mention there is presentation for those project as well. _i ended up using claude for one of the project, i was no longer in the mood to program another website in under a week_
+
+> thanks a lot, H██████
+
+Since last semester I've been picking up games to play and ig it's fair to say I recovered now (ish) gonna start writing again sometimes soon™
+
+> if you like puzzle games as much as i do (like portal series), please check out schrodinger's cat burglar on steam.
+
+> I've been obsess with this game ever since I got it
+
+<p style="opacity:0; height:0;">On a unrelated note, I got my psvr working perfectly fine and painless with my pc. Im so fucking happy if you can't tell</p>
+
+Hope this help someone, maybe, probably not.
 
 
 <details markdown="block">

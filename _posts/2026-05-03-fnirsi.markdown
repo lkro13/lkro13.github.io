@@ -67,6 +67,32 @@ Seems like the display ribbon is fucked in a way I cannot see, all I can do now 
 
 I fucked up the acrylic bezel badly but hey, it satisfy my curiosity now.
 
+## update 2026/6/08
+
+I found a display that I thinks it works with it? I ordered it anyways, it wasn't expensive (~2.5 usd at the time). Now we wait for it to shipped from China.
+
+## 2026/6/29
+
+Got it today and it seems like it could work
+
+[side by side comparison/ pins]
+
+all the pins line up as well
+
+went ahead and soldered it (not my best soldering job, after all im using my old analog soldering iron which im not sure if the temperature is correct)
+
+[soldering]
+
+anddddd IT WORKS YAY 
+
+[image of working]
+
+and it still works even after reassembling everything
+
+[ image of completed]
+
+saved me from buying another soldering and throwing out this okish soldering iron ^_^
+
 # Teardown guide or some shit idk
 
 1. Remove the iron tip
@@ -96,6 +122,15 @@ as for the display, the best I can find is probably a SSD1316 128x32 14 pin OLED
 - LT1316P02C
 - L2832TSWV
 - P241309-18-A024
+
+Specification
+
+- 0.87 inch oled
+- 128x32
+- IIC 
+- SSD1316
+- white
+- 14 pin
 
 ![image of display ribbon + backside](/images/hs-01/disp-label.webp)
 

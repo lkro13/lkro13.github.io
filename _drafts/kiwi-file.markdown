@@ -7,6 +7,9 @@ categories: radio
 
 change the date later
 
+(abandon this is way too outside of my skill set. No not even claude can help you)
+
+I have the docs in english as well as 2 kiwi files, if you wanna take a look i can send you those files.
 
 # refrence
 
