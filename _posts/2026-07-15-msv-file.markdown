@@ -785,11 +785,11 @@ toc2opl toc@0x00;
 
 # Tool used
 
-atracdenc
+[Atracdenc](https://github.com/dcherednik/atracdenc)
 
-ImHex <3
+[ImHex](https://imhex.werwolv.net/) <3
 
-Wiztree
+[Wiztree](https://diskanalyzer.com/)
 
 google translate
 
