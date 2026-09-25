@@ -5,11 +5,7 @@ date:   2026-07-15 11:19:00 +0800
 categories: radio
 ---
 
-# TODO ADD THE IMAGES
-
-imma post this first, i really need source control for this plus i have started refrenceing to this and it's annoying having to open another vsc to look at it sooooooo gonna publish first
-
-This is all over the place as im still in the process of figuring out exactly how each files are created.
+This is all over the place, I hope this is how the head unit read/write the files.
 
 I know it's a mess i hope this toc can help a bit, i still trying to figure out jekyll as well as how their plugin works
 
@@ -18,9 +14,9 @@ I know it's a mess i hope this toc can help a bit, i still trying to figure out 
 
 # Introduction
 
-Since the original entry was long enough, i thought may as well seperate them and go much more indepth and document things along the way. As you can see it quite long already so yeah use the toc as a guide to hop around this entry. I believe i got most of the files now? i cannot confirm anything will be exactly the same as yours, use this as a reference only. i'm a human and human can make mistakes. There are still a few files i did not figuired out but this only contains files that are required to manually writing the database just enough to list the tracks.
+Since the original entry was long enough, i thought may as well separate them and go much more in-depth and document things along the way. As you can see it quite long already so yeah use the toc as a guide to hop around this entry. I believe i got most of the files now? i cannot confirm anything will be exactly the same as yours, use this as a reference only. i'm a human and human can make mistakes. There are still a few files i did not figured out but this only contains files that are required to manually writing the database just enough to list the tracks.
 
-also there is a toc2somethingsomething file, I found out the hard way **that** file has a affect on cd playback. I did not looked into how it structure, but what i discovred is if the entry does not match up with the amount of "albums" in the MSV it **will** not list cd tracks _for some reason_. I **might** add it at a later date if i ever figured out. For now a temporary fix is to copy the same entry (about 412 bytes) and paste it a few times, change the ids and the total track (right next to file version).
+also there is a toc2somethingsomething file, I found out the hard way **that** file has a affect on cd playback. I did not looked into how it structure, but what i discovered is if the entry does not match up with the amount of "albums" in the MSV it **will** not list cd tracks _for some reason_. I **might** add it at a later date if i ever figured out. For now a temporary fix is to copy the same entry (about 412 bytes) and paste it a few times, change the ids and the total track (right next to file version).
 
 ## WARNING
 
@@ -30,9 +26,7 @@ ok let's start
 
 # File structure ?
 
-> if you know a jekyll plugin to display files structures lmk because that would be nice
-
-this sturcture only contains files we are intersted 
+this structure only contains files we are interested 
 
 ```
 MSV
@@ -77,23 +71,30 @@ MSV
 
 ```
 
+<details markdown="block">
+
+<summary>Screenshot of files (WARNING EXTREMELY LONG IMAGE)</summary>
+
+![Entire files structure](/images/msv/files.webp)
+
+</details>
+
+
 #  MSV:/HOLD/MUSIC
 
-the order of each will follow the above direcotry structer layout
+the order of each will follow the above directory structure layout
 
-we're skipping past the other 2 folder (AVBACKUP and CDDB) as they are irrelevent here
+we're skipping past the other 2 folder (AVBACKUP and CDDB) as they are irrelevant here
 
 Also before we start the following files are my own cd rips into the hdd, i created my own compilation so i have more data to work with.
 
-**ALL FILES ARE FORMATED IN SHIFTJIS**
+**ALL FILES ARE FORMATTED IN SHIFTJIS**
 
 ## APL01-10/
 
 They are split into 100 files per folder so `APL01` will have `APL001-100.PL` and `APL02` will have `APL101-200.PL` why ? idk this applies to others as well.
 
 ### APLXXX.PL file
-
-[screenshot here]
 
 this file contains information on the artist.
 
@@ -104,6 +105,8 @@ and then we get to the tracks 2 bytes for album id and 2 bytes for track id (i t
 **IMPORTANT NOTE**
 
 the hex pattern below contains `totalMinutes` and `totalSeconds`. this is **only** used on album files (OPLXXX.PL) and it is **not** used on other place (as far as i can tell)
+
+![APLXXX.PL Hex screenshot](/images/msv/APL.webp)
 
 ## COMMON/
 
@@ -137,9 +140,21 @@ another `00` then 2 bytes for the ID of the thing (artist, genre, album, userpli
 
 repeat until the end
 
-(GOPL.PLL shown)
+GAPL.PLL
 
-[image]
+![GAPL.PLL](/images/msv/GAPL.webp)
+
+GGPL.PLL
+
+![GGPL.PLL](/images/msv/GGPL.webp)
+
+GOPL.PLL
+
+![GOPL.PLL](/images/msv/GOPL.webp)
+
+GUPL.PLL
+
+![GUPL.PLL](/images/msv/GUPL.webp)
 
 ### RO-PL.DAT
 
@@ -171,10 +186,55 @@ starts off with the version (again) then 4 bytes that is fixed for each file(i t
 
 starts of with a byte of the type (i think) then 3 bytes padding follow by a byte that i think is used for visibility ? possibly idk it is like the G-PL file. 2 bytes for the id then 2 bytes of padding then 64 bytes for the search in hiragana (according to my brother). ends with 4 bytes of padding. rise and repeat
 
-funny enough, both ROAPL and ROOPL have pre inserted 1000 entries, does that means the maxium you can have is 1000 albums and 1000 diffrent artist ? considering the MUSIC also have 1000 folders created? hmm
+funny enough, both ROAPL and ROOPL have pre inserted 1000 entries, does that means the maximum you can have is 1000 albums and 1000 different artist ? considering the MUSIC also have 1000 folders created? hmm
 
-if my script is correct, i have about 545 unique artists and possibiliy 1051(!) albums according to lyrion (include duplicates as well as multi compilation albums) that might be a issue uh hmm
+if my script is correct, i have about 545 unique artists and possibility 1051(!) albums according to lyrion (include duplicates as well as multi compilation albums) that might be a issue uh hmm
 
+ROAPL.DAT
+
+![ROAPL.DAT](/images/msv/ROAPL.webp)
+
+ROOPL.DAT
+
+![ROOPL.DAT](/images/msv/ROOPL.webp)
+
+ROUPL.DAT
+
+![ROUPL.DAT](/images/msv/ROUPL.webp)
+
+### TOC2OPL.TBL
+
+I assume this file contains the disc structure that the head unit refer to when it decide if it is a new disc or not.
+
+It starts with a version header (like others) and a total entry
+
+#### Entry
+
+Each entry is 412 bytes (oddly specific enough) and it starts of with a id follow by 4 fixed bytes (no idea what they do, they seem constant).
+
+Then we have total number of tracks, minutes, seconds and milliseconds (?). follow by another fixed byte.
+
+Then we enter the actual data section. Each section contains 4 bytes, minutes, seconds, milliseconds, and a padding.
+
+They contains the time for each start of a track
+
+so let's say there is a disc of 3 song, all of which are 3 minutes (because im lazy)
+
+first track are ignore since they are gonna be the first on the disc
+
+but the second track will be 3 minutes, and the third track will be 6 minutes
+
+so
+
+0:00 | 3:00 | 6:00
+
+they mark the start of each track from the start of the disc, and it can have up to 99 track which is what a CD limits is
+
+> that explains the odd 412 bytes huh
+
+from there i assume it can lookup it's own GraceNote DB to fetch the disc metadata 
+
+![TOC2OPL.TBL](/images/msv/TOC2OPL.webp)
 
 ## GPL01/
 
@@ -200,11 +260,13 @@ there are 15 genres total and they have their own ids
 | 14 | world |
 | 15 | Enka/Folk song (?) |
 
-and corrisponse to their files as well
+and correspond to their files as well
 
 GPL0XX.PL
 
-File strucrer is like APL but curios enoguh there isn a second "genre title" like in APL there is 2 artist huh
+File structure is like APL but curios enough there isn a second "genre title" like in APL there is 2 artist huh
+
+![GPLXXX](/images/msv/GPLXXX.webp)
 
 ## OPLXX/
 
@@ -236,6 +298,8 @@ as far i can tell it just based on the file name so OPL025.PL would be `19` (in 
 
 it does seems like the max tracks in a album is 99, otherwise it will just wrap around back to track 1.
 
+![OPLXXX.PL](/images/msv/OPLXXX.webp)
+
 ## PLDATXX/
 
 this is where the track info is stored, follow with the album
@@ -248,7 +312,7 @@ OPL01 folder would be PLDAT01
 
 ### PLXXX.DAT
 
-this is much more intersting and also the one i first looked into (also created my first hex pat with it i just updated with some new info i theorize and better naming)
+this is much more interesting and also the one i first looked into (also created my first hex pat with it i just updated with some new info i theorize and better naming)
 
 starts off with the version as well but unlike others, it goes straight to the entries
 
@@ -256,39 +320,41 @@ starts off with the version as well but unlike others, it goes straight to the e
 
 Each entry is fixed at 256 bytes. 
 
-The max amount of entry is 99. Techinaclly you can go beyond it but the radio will not read the rest. no idea why but mine either show random tracks or just none.
+The max amount of entry is 99. Technically you can go beyond it but the radio will not read the rest. no idea why but mine either show random tracks or just none.
 
-Starts with 32 bytes for the track title follow by 3 bytes padding and a `01` for some reason (possibily recording status ? `00` unfinished recording, `01` finished recording?)
+Starts with 32 bytes for the track title follow by 3 bytes padding and a `01` for some reason (possibility recording status ? `00` unfinished recording, `01` finished recording?)
 
 and we got 64 bytes for the "search" in hiragana follow by 4 bytes padding. then 32 bytes for artist follow with 4 bytes of padding then 2 bytes for artist ID and 2 bytes of padding.
 
-2 bytes for the genre id follow by 8 bytes fixed(?). 2 byte for minutes and 2 bytes for seconds then we got `84 00 00 00 00 01` im not sure what it does but it is fixed accorss all files. You may notice i group it with `ignoring` as they are both i cannot figure out what they are. some have, some does not, sometimes it have 1 byte padding between each byte and sometimes it just a cluster of data. Cannot figure out what it means at all, it might be the grace note thingy but a album i got the info using grace note does not have it so ¯⁠\⁠_ ⁠(⁠ツ⁠)_⁠/⁠¯
+2 bytes for the genre id follow by 8 bytes fixed(?). 2 byte for minutes and 2 bytes for seconds then we got `84 00 00 00 00 01` im not sure what it does but it is fixed across all files. You may notice i group it with `ignoring` as they are both i cannot figure out what they are. some have, some does not, sometimes it have 1 byte padding between each byte and sometimes it just a cluster of data. Cannot figure out what it means at all, it might be the grace note thingy but a album i got the info using grace note does not have it so ¯⁠\⁠_ ⁠(⁠ツ⁠)_⁠/⁠¯
 
 _next 3 bytes of padding_ 
 
-> probably my own stupidty before. it probably is just 2 bytes and the `ignoring` expands by 1 but idc
+> probably my own stupidity before. it probably is just 2 bytes and the `ignoring` expands by 1 but idc
 
-next 1 byte or `trackIndicator` byte. again not sure but is is constant accorss all files except the last track where is just `00` instead of `64` 
+next 1 byte or `trackIndicator` byte. again not sure but is is constant across all files except the last track where is just `00` instead of `64` 
 
-> Gemini said it is volume ? i don't trust it plus i tried, did absoutly nothing
+> Gemini said it is volume ? i don't trust it plus i tried, did absolutely nothing
 
 15 bytes of constant data again. then timestamp ts is so damn stupid actually it literally is just yyyymmddhhmmss in hex
 
 > why i did not notice it until gemini points it out? 
 
-Because i have the gps attena plugged in and it **has** the correct time but for some reason the system is stuck at 2006-09-13 22:07:21 while i ripped the disc in idk _fucking 2026????_
+Because i have the gps antenna plugged in and it **has** the correct time but for some reason the system is stuck at 2006-09-13 22:07:21 while i ripped the disc in idk _fucking 2026????_
 
 > wait assuming the date is defaulted to the release date, this thing is just older than me by 3 months ???? _anyways_
 
 then we have `02` for idk seems constant as well then 49 bytes of padding. repeat ts till end
 
-[image of pldat]
+![PLXXX.DAT](/images/msv/PLDAT.webp)
 
 ## UPL/
 
-this folder contains 5 `.PL` files which i bealive it is the "myMix" or i called it user playlist 
+this folder contains 5 `.PL` files which i believe it is the "myMix" or i called it user playlist 
 
 i did not look into it at all but the syntax does looks like others
+
+![UPLXXX](/images/msv/UPLXXX.webp)
 
 # MSV:/MUSIC
 
@@ -349,7 +415,9 @@ replace pionner header with ATRAC3 header if you wanna read and vice verse if yo
 
 # How cd is ripped to disc
 
-it first starts by looking for empty OPL or any existing OPL that matches the disc. If there is any existing ones it just continues recording it.
+~~it first starts by looking for empty OPL or any existing OPL that matches the disc. If there is any existing ones it just continues recording it.~~
+
+new info, it check TOC2OPL files for matching disc. If there is a match, it will continue recording to the OPL.
 
 If it's a new disk
 
@@ -371,6 +439,7 @@ MSV/
 |       |   |- GOPL.PLL *
 |       |   |- ROAPL.DAT *
 |       |   |- ROOPL.DAT *
+|       |   |- TOC2OPL.TBL *
 |       |
 |       |- GPL01/
 |       |   |- GPL0XX.PL *
@@ -392,20 +461,20 @@ MSV/
 
 ~~might be my disc label is wrong but im not sure~~
 
-i fucking just realized i put the wrong id. imma test with a new one and report back
+~~i fucking just realized i put the wrong id. imma test with a new one and report back~~
 
 nvm it just create a new file for that artist
 
 > fuck
 
-To explain it better Im gonna create a hypotectical DB with songs already and assumed all disc are ripped completely
+To explain it better Im gonna create a hypothetical DB with songs already and assumed all disc are ripped completely
 
 ```
 Number of albums: 4
 Number of artist: 12
 ```
 
-> Disc only contains 1 artist for simplicitly but it will create multiple artist files if there is multiple diffrent artist
+> Disc only contains 1 artist for simplicity but it will create multiple artist files if there is multiple different artist
 
 so inserting a disc it will create
 ```
@@ -437,6 +506,7 @@ MSV/
                 |- GOPL.PLL
                 |- ROAPL.DAT
                 |- ROOPL.DAT
+                |- TOC2OPL.TBL
             |- GPL01/
                 |- GPL0XX.PL (based on genre id)
 ```
@@ -463,13 +533,14 @@ the file it modified basically tells the radio
 | `ROAPL.DAT` | Contains hiragana of the artist in 80 bytes chunk |
 | `ROOPL.DAT` | Contains hiragana of the album in 80 bytes chunk |
 | `GPL0xx.PL` | Contains list of songs in the genre |
+| `TOC2OPL.TBL` | Contains disc structure |
 
 if the disc did not specify the genre, it will be places as others or `01`
 
 both `.DAT` files are fixed as describe above and below, and it will only automatically do translation if it's in japanese
 else it will be just `00` 
 
-it is used for their voice search system (which btw works surprisly well, better than a 2023 toyota corolla cross somehow)
+it is used for their voice search system (which btw works surprisingly well, better than a 2023 toyota corolla cross somehow)
 
 > it's a mess i know but im trying my best to describe it
 
@@ -500,7 +571,7 @@ struct Entry{
     u8 const1[4];
     u8 visibility; // oo: hidden 01: shown
     u8 padding2;
-    u16 ID; //ID for thingy like artistID or alubmID
+    u16 ID; //ID for thingy like artistID or albumID
     u8 padding3[20];
 };
 
@@ -726,7 +797,7 @@ deepl
 
 > Questions ? send me a mesage on discord or twitter or open a github issue, ill get back to you (maybe)
 
-<p style="opacity:0; height:0;">I won't bite... most of the time</p>
+<p style="opacity:0.2; height:0;">I won't bite... most of the time</p>
 
 ## Tools 
 
@@ -743,12 +814,16 @@ One of my groupmate suddenly dropout in the middle of the semester so i ended up
 Since last semester I've been picking up games to play and ig it's fair to say I recovered now (ish) gonna start writing again sometimes soon™
 
 > if you like puzzle games as much as i do (like portal series), please check out schrodinger's cat burglar on steam.
-
+>
 > I've been obsess with this game ever since I got it
 
 <p style="opacity:0; height:0;">On a unrelated note, I got my psvr working perfectly fine and painless with my pc. Im so fucking happy if you can't tell</p>
 
 Hope this help someone, maybe, probably not.
+
+![lol](/images/msv/lmao.webp)
+
+>turns out im bad at spelling
 
 
 <details markdown="block">

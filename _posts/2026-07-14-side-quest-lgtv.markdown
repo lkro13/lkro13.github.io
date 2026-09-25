@@ -15,19 +15,19 @@ Normally i would just use a esp32/c3 boards but im looking to experiment with a 
 
 The controller im using this time is from uh DOMRAEM, supports up to 24v with type c pd trigger so that's convenient
 
-The led this time im experimenting with WS2815 since 12v, argb in single led instead of 3 in series.
+The led this time im experimenting with WS2815 since it's 12v and rgb in single led instead of 3 in series.
 
 installing is just a matter of cutting to length sticking down and soldering the wires
 
-[image of completed installation]
+![image of completed installation](/images/wled/completed%20wiring.webp)
 
-after that you just have to configure your wled to the led amount and change the led type to WS2815 also set the current limit of your PSU (mine is 2A)
+after that you just have to configure your wled to the led amount and change the led type to your specific strip and also set the current limit of your PSU (mine is 2A)
 
-Now you have a backlight on your monitor/tv! if you want to go even further, install HyperionNG on your computer and you can sync your display to the led which makes movie watching experience even better.
+Now you have a backlight on your monitor/tv! if you want to go even further, install HyperionNG or HyperHDR on your computer and you can sync your display to the led which makes movie watching experience even better.
 
-No it is not distracting at all, if you configure properly it literally blends in with the surrounding and you **would** stop noticing. It literally enhance your viewing experience.
+No it is not distracting at all, if you configure properly it literally blends in with the surrounding and you **would** stop noticing. It literally enhance your viewing experience by expanding it to your surrounding.
 
-> Fun fact! the first time i tried Hyperion with my brother, we literally forgot we are suppose to test the leds and end up watching an entire show.
+> Fun fact! the first time i tried Hyperion with my brother, we literally forgot we are suppose to test how "distracting" it is and end up watching an entire show.
 
 [7/8/2026]
 
@@ -39,9 +39,11 @@ I removed the button screw terminal since im not using it and replace with a rec
 
 The 3.3v i tapped from the serial chip (if it exist)
 
-[image of ir mod]
+![ir mod](/images/wled/ir%20mod.webp)
 
-(ultrakill gameplay if im bored)
+interestingly enough, it is the same CH224K found in fnirsi HS-01 along with a puya microcontroller to configure the power and the status led.
+
+> is microcontroller **that** cheap now? like back then using dip switches for these makes the most sense.
 
 yes it is a ultra wide monitor, sort of regret it since i have to shrink my normal content down to a small window otherwise ow my neck. But it is so damn useful for coding, i can split my code in 3 different window and hell even with ImHex i can have 2 full window at once without sacrificing details. (Web dev html+css+js window all opened at once)
 
