@@ -126,6 +126,12 @@ But thankfully for gemini at least, there is [someone forked armbian](https://gi
 
 > Let me use me Pi clone as a pi goddammit
 
+### UPDATE 1/10/2026 
+
+I RANDOMLY STUMBLE ACROSS THEIR ARMBIAN BUILD ON THEIR SITE HIDDEN AWAY
+
+[Download list here](/2026/10/01/fly-mini-pad-armbian.markdown#fly-armbian-download)
+
 ### TL:DR
 
 If you are looking to purchase a mellow product or a kit containing mellow product (siboor v0.2) be aware that you would likely get locked in their ecosystem with little customizability and confusing/limited documentation. If you want to, the workaround are quite annoying may require you to break something (like a pin in the stepper driver) or just out of luck (installing packages on os).

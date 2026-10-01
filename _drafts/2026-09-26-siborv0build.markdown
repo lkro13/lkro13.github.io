@@ -1651,7 +1651,7 @@ Other mods i did recently include things like panel quick release, extended top 
 
 It has been pretty uneventful after the build log, in fact right now i can just turn it on and send stuff to print. If i remember to clean the bed that is.
 
-At the time of writing this (27/9/2026) i have around 700h print time on it. I'm NOT looking forward to the maintenance on 1000h
+At the time of writing this (27/9/2026) i have around 700h (almost 800h) print time on it. I'm NOT looking forward to the maintenance on 1000h
 
 I realize now i did not show how damaged the siboor plate is so here it is!
 
@@ -1662,6 +1662,20 @@ as you can see, it's very bald
 My entire mod list can be found [on my printables](https://www.printables.com/@lkro13/collections/2248188)
 
 this is what he looks like now
+
+
+[29/9/2026]
+
+SERIOUSLY ???? RIGHT AFTER I WRITTEN THIS BLOG ???
+
+![graph](/images/v0build/fuckyou.webp)
+
+At least i know immediately it was the umbilical cable (sigh)
+
+partially my fault since i forgot the strain relief zip tie (oops)
+
+> canbus toolhead looking real good rn
+
 
 ### Ending notes
 
@@ -1674,6 +1688,8 @@ Is 0.2 a good beginner voron ? probably not, things i heard online about the fra
 It's a fast little silly printer that can be lugged around, I love him so much actually.
 
 (someday i might do a PD mod just because i can)
+
+![:p](/images/v0build/bleh.webp)
 
 ### Resources
 
@@ -1699,8 +1715,6 @@ It's a fast little silly printer that can be lugged around, I love him so much a
 
 ### Thanks!
 
-Goat @goat07437
-
 Yogi Bear V2.7719 @yogibear2244
 
 ethanol @ethanol3472
@@ -1710,6 +1724,8 @@ CabbageCorp V0.4001 @maximalism
 unpaid_bill @unpaid_bill
 
 xxxtooprox V2.8394 @xxxtooprox
+
+Goat @goat07437
 
 taffofox @taffofox
 
