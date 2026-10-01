@@ -130,7 +130,7 @@ But thankfully for gemini at least, there is [someone forked armbian](https://gi
 
 I RANDOMLY STUMBLE ACROSS THEIR ARMBIAN BUILD ON THEIR SITE HIDDEN AWAY
 
-[Download list here](/2026/10/01/fly-mini-pad-armbian.markdown#fly-armbian-download)
+[Download list here](/2026/10/01/fly-mini-pad-armbian.html#fly-armbian-download)
 
 ### TL:DR
 
